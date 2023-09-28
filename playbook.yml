@@ -1,0 +1,12 @@
+---
+  - hosts: local
+    become: yes
+
+    tasks:
+      - name: Install Git & GitHub
+        apt:
+          state: present
+          name:
+            - git
+            - gh
+      
