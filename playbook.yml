@@ -10,3 +10,10 @@
             - git
             - gh
       
+      - name: Install Alacritty
+        apt:
+          state: present
+          name: alacritty
+
+
+# to do: Tmux, zsh, nvim, dotFiles, docker, usw..
