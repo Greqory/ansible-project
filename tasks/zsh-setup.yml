@@ -10,7 +10,7 @@
 
 - name: Check that the somefile.conf exists
   stat:
-    path: /home/theprimeagen/.oh-my-zsh
+    path: /home/greg/.oh-my-zsh
   register: oh_my_stats
   tags: *tags_for_zsh_tasks
 
