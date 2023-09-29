@@ -2,7 +2,6 @@
   vars:
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
-    personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -20,6 +19,6 @@
     - include: tasks/zsh-setup.yml
     - include: tasks/nvim-setup.yml
     - include: tasks/brave.yml
-    - include: tasks/dotfiles.yml
+#    - include: tasks/dotfiles.yml
     - include: tasks/productivity-tools.yml
 
