@@ -1,19 +1,15 @@
 ---
-  - hosts: local
-    become: yes
-
-    tasks:
-      - name: Install Git & GitHub
-        apt:
-          state: present
-          name:
-            - git
-            - gh
-      
-      - name: Install Alacritty
-        apt:
-          state: present
-          name: alacritty
-
-
-# to do: Tmux, zsh, nvim, dotFiles, docker, usw..
+- name: Default Playbook
+  hosts: local
+  become: true
+  tasks:
+    - name: Install Git & GitHub
+      ansible.builtin.apt:
+        state: present
+        name:
+          - git gh
+    - name: Install Alacritty
+      ansible.builtin.apt:
+        state: present
+        name: alacritty
+# to do: Tmux, zsh, nvim, dotFiles, docker, usw.

@@ -1,7 +1,8 @@
+---
 - name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
   become: true
-  apt:
-    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
+  ansible.builtin.apt:
+    name: [build-essential, cmake, pkg-config, libpthread-stubs0-dev]
   tags:
     - install
     - neovim
@@ -9,8 +10,8 @@
 
 - name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
   become: true
-  apt:
-    name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
+  ansible.builtin.apt:
+    name: [lua5.1, unzip, libtool, libtool-bin, gettext]
   tags:
     - install
     - neovim
@@ -18,10 +19,8 @@
 
 - name: Install System Packages 3 (the rest)
   become: true
-  apt:
-    name: [ "curl", "python3-pip"]
+  ansible.builtin.apt:
+    name: [curl, python3-pip]
   tags:
     - install
     - core
-
-

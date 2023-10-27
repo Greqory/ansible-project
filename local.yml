@@ -1,24 +1,32 @@
-- name: "Local Setup"
+---
+- name: Local Setup
   hosts: localhost
   vars:
-    source_key: "./.ssh/id_rsa"
+    source_key: ./.ssh/id_rsa
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
   pre_tasks:
     - name: Update Apt
       become: true
-      apt:
-      force_apt_get: true
-      update_cache: true
-      state: present
-      tags:
-      - install
-      - core
-  include_tasks:
-    - tasks/git-setup.yml
-      tasks/core-setup.yml
-      tasks/zsh-setup.yml
-      tasks/nvim-setup.yml
-      tasks/brave.yml
-      tasks/productivity-tools.yml
+      ansible.builtin.apt:
+        update_cache: true
+  tasks:
+    - name: Execute Tasks 1
+      ansible.builtin.include_tasks:
+        file: tasks/git-setup.yml
+    - name: Execute Tasks 2
+      ansible.builtin.include_tasks:
+        file: tasks/core-setup.yml
+    - name: Execute Tasks 3
+      ansible.builtin.include_tasks:
+        file: tasks/zsh-setup.yml
+    - name: Execute Tasks 4
+      ansible.builtin.include_tasks:
+        file: tasks/nvim-setup.yml
+    - name: Execute Tasks 5
+      ansible.builtin.include_tasks:
+        file: tasks/productivity-tools.yml
+    - name: Execute Tasks 6
+      ansible.builtin.include_tasks:
+        file: tasks/brave.yml
 #     tasks/dotfiles.yml
 #     tasks/ssh.yml
