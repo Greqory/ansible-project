@@ -1,4 +1,5 @@
-- hosts: localhost
+- name: "Local Setup"
+  hosts: localhost
   vars:
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
@@ -21,4 +22,3 @@
     - include: tasks/brave.yml
 #    - include: tasks/dotfiles.yml
     - include: tasks/productivity-tools.yml
-
