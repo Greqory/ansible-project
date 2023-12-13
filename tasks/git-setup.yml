@@ -10,6 +10,6 @@
   community.general.git_config:
     name: user.name
     scope: global
-    value: GregorThu
+    value: Greqory
   tags:
     - git-personal
