@@ -6,22 +6,38 @@
   tags:
     - brave
     - install
+
+- name: Check if Brave Browser keyring file exists
+  ansible.builtin.stat:
+    path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+  register: keyring_status
+
+
 - name: Brave Browser archive-keyring.gpg download
   become: true
   ansible.builtin.get_url:
     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+  when: not keyring_status.stat.exists
   tags:
     - brave
     - install
+
+- name: Check if Brave Browser source list file exists
+  ansible.builtin.stat:
+    path: /etc/apt/sources.list.d/brave-browser-release.list
+  register: ppa_status
+
 - name: Brave Browser PPA setting
   become: true
   ansible.builtin.shell: echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] 
     https://brave-browser-apt-release.s3.brave.com/ stable
     main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+  when: not ppa_status.stat.exists
   tags:
     - brave
     - install
+
 - name: Brave Browser apt installation
   become: true
   ansible.builtin.apt:
