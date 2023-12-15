@@ -6,3 +6,11 @@
   tags:
     - install
     - productivity
+
+
+- name: Update tldr
+  become: true
+  ansible.builtin.shell: tldr -u
+  tags:
+    - productivity
+    - tldr
