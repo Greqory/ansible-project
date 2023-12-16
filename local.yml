@@ -13,23 +13,25 @@
         state: present
 
   tasks:
-    - name: Execute Tasks 1
+    - name: setup SSH
+      ansible.builtin.include_tasks:
+        file: tasks/ssh.yml
+    - name: Execute Git Setup
       ansible.builtin.include_tasks:
         file: tasks/git-setup.yml
-    - name: Execute Tasks 2
+    - name: Execute Core Setup
       ansible.builtin.include_tasks:
         file: tasks/core-setup.yml
-    - name: Execute Tasks 3
+    - name: Execute ZSH Setup
       ansible.builtin.include_tasks:
         file: tasks/zsh-setup.yml
-    - name: Execute Tasks 4
+    - name: Execute NVIM Setup
       ansible.builtin.include_tasks:
         file: tasks/nvim-setup.yml
-    - name: Execute Tasks 5
+    - name: Execute Setup productivity tools
       ansible.builtin.include_tasks:
         file: tasks/productivity-tools.yml
-    - name: Execute Tasks 6
+    - name: Execute Brave Setup
       ansible.builtin.include_tasks:
         file: tasks/brave.yml
 #     tasks/dotfiles.yml
-#     tasks/ssh.yml
