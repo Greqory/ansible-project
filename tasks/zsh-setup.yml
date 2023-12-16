@@ -11,7 +11,7 @@
   when: ansible_user_shell != "/usr/bin/zsh"
   tags: *tags_for_zsh_tasks
 
-- name: Check that the somefile.conf exists
+- name: Check if ohmyzsh exists
   ansible.builtin.stat:
     path: /home/greg/.oh-my-zsh
   register: oh_my_stats

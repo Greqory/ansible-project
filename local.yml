@@ -2,13 +2,16 @@
 - name: Local Setup
   hosts: localhost
   vars:
-    source_key: ./.ssh/id_rsa
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    source_key: ./.ssh/ansible
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/ansible"
   pre_tasks:
     - name: Update Apt
       become: true
       ansible.builtin.apt:
+        force_apt_get: true
         update_cache: true
+        state: present
+
   tasks:
     - name: Execute Tasks 1
       ansible.builtin.include_tasks:
