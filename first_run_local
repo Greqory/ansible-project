@@ -5,4 +5,4 @@ sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 
 # run ansible playbook
-ansible-playbook  local.yml  -K 
+ansible-playbook  local.yml  -K --ask-vault-pass
