@@ -1,7 +1,8 @@
 ---
 - name: Local Setup
   hosts: localhost
-  connection: local 
+  connection: local
+  gather_facts: false 
   vars:
     source_key: ./.ssh/ansible
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/ansible"
