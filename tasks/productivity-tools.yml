@@ -2,11 +2,18 @@
 - name: Install packages
   become: true
   ansible.builtin.apt:
-    name: [tmux, wireshark, fzf, gimp, tldr, ripgrep]
+    name: [tmux, wireshark, fzf, gimp, ripgrep, python3-pip]
   tags:
     - install
     - productivity
-
+  
+- name: Install tldr
+  become: true
+  ansible.builtin.shell: pip3 install tldr
+  tags:
+    - install
+    - productivity
+    - tldr
 
 - name: Update tldr
   become: true
