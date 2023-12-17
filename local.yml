@@ -1,13 +1,14 @@
 ---
 - name: Local Setup
   hosts: localhost
+  connection: local 
   vars:
     source_key: ./.ssh/ansible
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/ansible"
   pre_tasks:
     - name: Update Apt
       become: true
-      accept_hostkey: yes
+      #accept_hostkey: yes
       ansible.builtin.apt:
         force_apt_get: true
         update_cache: true
