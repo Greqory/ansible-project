@@ -8,7 +8,6 @@
 - name: Change shell to zsh
   become: true
   ansible.builtin.shell: chsh -s $(which zsh)
-  when: ansible_user_shell != "/usr/bin/zsh"
   tags: *tags_for_zsh_tasks
 
 - name: Check if ohmyzsh exists
