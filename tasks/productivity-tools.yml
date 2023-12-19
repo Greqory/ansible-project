@@ -8,7 +8,6 @@
     - productivity
   
 - name: Install tldr
-  become: true
   ansible.builtin.shell: pipx install tldr
   tags:
     - install
@@ -16,7 +15,6 @@
     - tldr
 
 - name: Update tldr
-  become: true
   ansible.builtin.shell: "{{ lookup('env', 'HOME') }}/.local/bin/tldr -u"
   tags:
     - productivitytldr
