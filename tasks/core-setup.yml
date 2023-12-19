@@ -20,7 +20,7 @@
 - name: Install System Packages 3 (the rest)
   become: true
   ansible.builtin.apt:
-    name: [curl, python3-pip, alacritty, gh, btop, neofetch, cowsay]
+    name: [curl, python3-pip, alacritty, gh, btop, neofetch, cowsay, stow]
   tags:
     - install
     - core
