@@ -2,7 +2,7 @@
 - name: Install packages
   become: true
   ansible.builtin.apt:
-    name: [tmux, wireshark, fzf, gimp, ripgrep, python3-pip, pipxpipx ]
+    name: [tmux, wireshark, fzf, gimp, ripgrep, python3-pip, pipx ]
   tags:
     - install
     - productivity
