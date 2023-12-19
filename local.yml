@@ -37,4 +37,6 @@
     - name: Execute Brave Setup
       ansible.builtin.include_tasks:
         file: tasks/brave.yml
-#     tasks/dotfiles.yml
+    - name: setup Dotfiles
+      ansible.builtin.include_tasks:
+        file: tasks/dotfiles.yml

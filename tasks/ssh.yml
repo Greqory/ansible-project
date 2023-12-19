@@ -26,10 +26,10 @@
     - dotfiles
     - install
     - ssh
-#- name: Set authorized key took from file
-#  ansible.posix.authorized_key:
-#    user: "{{ lookup('env', 'USER') }}"
-#    state: present
-#    key: "{{ lookup('env', 'HOME') }}/.ssh/ansible.pub"
+- name: Set authorized key took from file
+  ansible.posix.authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('env', 'HOME') }}/.ssh/ansible.pub"
 #  with_fileglob:
 #    - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
